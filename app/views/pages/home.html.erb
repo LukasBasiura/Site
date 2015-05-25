@@ -1,11 +1,12 @@
 
 
-<h1>Better that Instagram</h1>
-<p>
-  <%= link_to "Sing Up Now !", "#" %>
-</p>
 
-
+<div class="jumbotron">
+    <% if user_signed_in? %>
+    <%else%>
+            <h1>Better that Snap</h1>
+    <% end %>
+</div>
 
 
 

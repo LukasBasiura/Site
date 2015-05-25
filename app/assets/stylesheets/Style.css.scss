@@ -1,0 +1,26 @@
+@import "bootstrap.scss";
+@import "bootstrap-mincer";
+@import "bootstrap-compass";
+@import "bootstrap.min";
+@import "bootstrap.css";
+
+.navbar-inverse{
+  background: #F7F7F7;
+}
+
+
+body{
+    padding: 60px;
+}
+
+.footer{
+  margin-top: 50px;
+  color: $gray-light;
+  a{
+    color: $gray;
+  }
+}
+
+.btn{
+  border-radius: 24px;
+}
