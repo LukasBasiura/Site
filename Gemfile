@@ -12,6 +12,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'autoprefixer-rails'
 gem 'simple_form'
+gem 'carrierwave'
+gem 'cloudinary'
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 
 
 gem 'sdoc', '~> 0.4.0', group: :doc
