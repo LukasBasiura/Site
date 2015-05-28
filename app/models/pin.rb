@@ -1,6 +1,6 @@
 class Pin < ActiveRecord::Base
 
-  has_attached_file :image, styles: {medium: "320x240>"}
+  has_attached_file :image, :style => { :thumb => '120x120#', :medium => '300x400>' }
   validates :description, presence: true
   validates_attachment :image, presence: true,
                        content_type:{content_type: ['image/jpeg','image/jpeg','image/png','image/gif'] },

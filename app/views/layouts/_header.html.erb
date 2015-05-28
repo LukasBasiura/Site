@@ -29,6 +29,12 @@
       <ul class="nav pull-right">
         <% if user_signed_in? %>
 
+                <% if current_page?(new_pin_path)%>
+                    <%= link_to "+Add image", new_pin_path, class: "btn btn-success btn-large"%>
+                <%else%>
+                    <%= link_to "+Add image", new_pin_path, class: "btn btn-primary btn-large"%>
+                <%end%>
+
                 <% if current_page?(edit_user_registration_path)%>
                     <%= link_to "Edit profile", edit_user_registration_path, class: "btn btn-success btn-large"%>
                 <%else%>
