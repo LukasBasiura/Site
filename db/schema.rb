@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150527141519) do
+ActiveRecord::Schema.define(version: 20150601143940) do
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "pin_id"
+  end
+
+  add_index "comments", ["pin_id"], name: "index_comments_on_pin_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "pins", force: :cascade do |t|
     t.string   "description"
@@ -22,8 +33,10 @@ ActiveRecord::Schema.define(version: 20150527141519) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "comment_id"
   end
 
+  add_index "pins", ["comment_id"], name: "index_pins_on_comment_id"
   add_index "pins", ["user_id"], name: "index_pins_on_user_id"
 
   create_table "users", force: :cascade do |t|

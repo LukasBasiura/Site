@@ -16,4 +16,8 @@
 //= require bootstrap-sprockets
 //= require bootstrap
 //= require masonry.pkgd.min.js
+//= require jquery.infinitescroll
+//= require jquery-ias.min.js
+//= require jquery.lazyload.js
 //= require_tree .
+

@@ -1,20 +1,60 @@
-    <div class="col-md-6">
-        <p id="notice"><%= notice %></p>
 
-      <div class="well">
-        <p>
-          <%= image_tag @pin.image %>
-        </p>
-        <p >
-          <%= @pin.description %>
-        </p>
-        <p style="color: crimson">
-          <%= @pin.user.name %>
-        </p>
-      </div>
-      <% if current_user == @pin.user %>
-      <%= link_to 'Edit', edit_pin_path(@pin),class: "btn btn-info" %> |
-      <% end %>
-      <%= link_to 'Back', pins_path,class: "btn btn-info" %>
 
+    <div class="row">
+        <div class="col-md-6">
+
+
+          <div class="well">
+            <p>
+              <%= image_tag @pin.image, size: "400x260" %>
+            </p>
+            <p >
+              <%= @pin.description %>
+            </p>
+            <p style="color: crimson">
+              <%= @pin.user.name %>
+            </p>
+          </div>
+          <% if current_user == @pin.user %>
+          <%= link_to 'Edit', edit_pin_path(@pin),class: "btn btn-info" %> |
+          <% end %>
+          <%= link_to 'Back', pins_path,class: "btn btn-info" %>
+        </div>
+
+
+        <div class="col-md-6">
+            <div id="rows">
+                 <% @comments.each do |t|%>
+                  <div class="well">
+                    <p >
+                      <%= t.content %>
+                    </p>
+
+                    <p style="color: crimson">
+                      <%= t.user.name %>
+                    </p>
+                    <% if current_user == t.user  || current_user == @pin.user %>
+                        <span class="glyphicon glyphicon-remove pull-right" aria-hidden="true"><%= link_to 'Delete',t,method: :delete, data: { confirm: 'Are you sure?' } %>
+                        </span>
+                    <%end%>
+                  </div>
+
+                 <% end %>
+
+            </div>
+
+              <div id="comment" class="well">
+              <%= render 'comments/form'%>
+              </div>
+        </div>
     </div>
+
+<script type="text/javascript">
+  $(window).scroll(function(){
+      if($(window).scrollTop()==$(document).height() - $(window).height()){
+          var count = $('#rows');
+          var start = count.children().length;
+          console.log(start);
+      }
+  });
+</script>

@@ -15,7 +15,12 @@ gem 'simple_form'
 gem 'carrierwave'
 gem 'cloudinary'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
-
+gem 'aws-sdk'
+gem 'bootstrap-will_paginate'
+gem 'will_paginate', '~> 3.0.6'
+gem 'betterlorem'
+gem 'kaminari'
+gem "lazyload-rails"
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 
@@ -34,8 +39,13 @@ group :development, :test do
   gem 'sqlite3'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'rspec-rails'
 end
 
 group :production do
   gem 'pg'
+end
+
+group :test do
+  gem 'capybara'
 end
